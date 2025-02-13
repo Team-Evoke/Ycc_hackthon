@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAPL Trading Monitor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .time, .price, .volume, .change, .range, .status {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #555;
+        }
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .positive {
+            color: #2ecc71;
+        }
+        .negative {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">AAPL Trading Monitor</div>
+        <div class="time">Time: <span id="time">10:20:46 AM</span></div>
+        <div class="price">Price: $<span id="price" class="positive">186.69</span></div>
+        <div class="volume">Volume: <span id="volume">5265</span></div>
+        <div class="change">Change %: <span id="change" class="positive">0.68</span></div>
+        <div class="range">Day Range: <span id="range">181.69 - 191.69</span></div>
+        <div class="status">Trading Volume: <span id="tradingVolume">5265</span> (Status: ACTIVE)</div>
+    </div>
+    <script>
+        function getRandomNumber(min, max) {
+            return (Math.random() * (max - min) + min).toFixed(2);
+        }
+
+        function updateTime() {
+            const now = new Date();
+            const time = now.toLocaleTimeString();
+            document.getElementById('time').innerText = time;
+        }
+
+        function updatePrice() {
+            const priceElement = document.getElementById('price');
+            const price = getRandomNumber(180, 200);
+            priceElement.innerText = price;
+            priceElement.className = price >= 190 ? 'positive' : 'negative';
+        }
+
+        function updateVolume() {
+            document.getElementById('volume').innerText = getRandomNumber(5000, 6000);
+        }
+
+        function updateChange() {
+            const changeElement = document.getElementById('change');
+            const change = getRandomNumber(-1, 1);
+            changeElement.innerText = change;
+            changeElement.className = change >= 0 ? 'positive' : 'negative';
+        }
+
+        function updateRange() {
+            const min = getRandomNumber(180, 185);
+            const max = getRandomNumber(190, 195);
+            document.getElementById('range').innerText = `${min} - ${max}`;
+        }
+
+        function updateTradingVolume() {
+            document.getElementById('tradingVolume').innerText = getRandomNumber(5000, 6000);
+        }
+
+        function updateData() {
+            updateTime();
+            updatePrice();
+            updateVolume();
+            updateChange();
+            updateRange();
+            updateTradingVolume();
+        }
+
+        setInterval(updateData, 1000); // Update every second
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+}
+
+.header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.time, .price, .volume, .change, .range, .status {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #555;
+}
+
+.price {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.positive {
+    color: #2ecc71;
+}
+
+.negative {
+    color: #e74c3c;
+}
